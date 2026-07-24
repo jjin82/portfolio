@@ -1,0 +1,112 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>../_bin/GameServer</BaseOutputPath>
+    <Platforms>x64</Platforms>
+    <PackageOutputPath>../_bin/GameServer</PackageOutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <OutputPath>../_bin/GameServer</OutputPath>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants>$(DefineConstants);GAME_SERVER;SERVER_SIDE;USER_LOG</DefineConstants>
+    <NoWarn>0014;0168;0169;0414;1701;1702;8600;8601;8602;8603;8604;8605;8607;8618;8622;8625</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DefineConstants>$(DefineConstants);GAME_SERVER;SERVER_SIDE;USER_LOG</DefineConstants>
+    <NoWarn>0014;0168;0169;0414;1701;1702;8600;8601;8602;8603;8604;8605;8607;8618;8622;8625</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common\Server\NerdFox\**" />
+    <Compile Remove="Domain\Math\**" />
+    <Compile Remove="Domain\Ranking\LegendPickaxe\**" />
+    <Compile Remove="Domain\SquareChat\**" />
+    <Compile Remove="Domain\PushService\**" />
+    <Compile Remove="Domain\SquareChat\**" />
+    <EmbeddedResource Remove="Common\Server\NerdFox\**" />
+    <EmbeddedResource Remove="Domain\Math\**" />
+    <EmbeddedResource Remove="Domain\Ranking\LegendPickaxe\**" />
+    <EmbeddedResource Remove="Domain\SquareChat\**" />
+    <EmbeddedResource Remove="Domain\PushService\**" />
+    <EmbeddedResource Remove="Domain\SquareChat\**" />
+    <None Remove="Common\Server\NerdFox\**" />
+    <None Remove="Domain\Math\**" />
+    <None Remove="Domain\Ranking\LegendPickaxe\**" />
+    <None Remove="Domain\SquareChat\**" />
+    <None Remove="Domain\PushService\**" />
+    <None Remove="Domain\SquareChat\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Client\Assets\Common\Common.cs" Link="Common\Client\Common.cs" />
+    <Compile Include="..\..\Client\Assets\Common\CommonStruct.cs" Link="Common\Client\CommonStruct.cs" />
+    <Compile Include="..\..\Client\Assets\Common\Packet\C2FPacket.cs" Link="Common\Client\Packet\C2FPacket.cs" />
+    <Compile Include="..\..\Client\Assets\Common\Packet\C2GPacket.cs" Link="Common\Client\Packet\C2GPacket.cs" />
+    <Compile Include="..\_Common\HNetwork\Common\Api.cs" Link="Common\Server\HNetwork\Common\Api.cs" />
+    <Compile Include="..\_Common\HNetwork\Common\Buffer.cs" Link="Common\Server\HNetwork\Common\Buffer.cs" />
+    <Compile Include="..\_Common\HNetwork\Common\Job.cs" Link="Common\Server\HNetwork\Common\Job.cs" />
+    <Compile Include="..\_Common\HNetwork\Common\Logger.cs" Link="Common\Server\HNetwork\Common\Logger.cs" />
+    <Compile Include="..\_Common\HNetwork\HNet.cs" Link="Common\Server\HNetwork\HNet.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetAcceptor.cs" Link="Common\Server\HNetwork\HNetAcceptor.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetCommon.cs" Link="Common\Server\HNetwork\HNetCommon.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetConnector.cs" Link="Common\Server\HNetwork\HNetConnector.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetConnector.Unity.cs" Link="Common\Server\HNetwork\HNetConnector.Unity.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetFunctor.cs" Link="Common\Server\HNetwork\HNetFunctor.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetIo.cs" Link="Common\Server\HNetwork\HNetIo.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetPacket.cs" Link="Common\Server\HNetwork\HNetPacket.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetPacket.Typedef.cs" Link="Common\Server\HNetwork\HNetPacket.Typedef.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetSession.cs" Link="Common\Server\HNetwork\HNetSession.cs" />
+    <Compile Include="..\_Common\IniFile.cs" Link="Common\Server\IniFile.cs" />
+    <Compile Include="..\_Common\MiniDumper.cs" Link="Common\Server\MiniDumper.cs" />
+    <Compile Include="..\_Common\MySql.cs" Link="Common\Server\MySql.cs" />
+    <Compile Include="..\_Common\Packet\G2FPacket.cs" Link="Common\Server\Packet\G2FPacket.cs" />
+    <Compile Include="..\_Common\ServerConfig.cs" Link="Common\Server\ServerConfig.cs" />
+    <Compile Include="..\_Common\StringManager.cs" Link="Common\Server\StringManager.cs" />
+    <Compile Include="..\_Common\Util.cs" Link="Common\Server\Util.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Client\Packet\" />
+    <Folder Include="Common\Server\HNetwork\Common\" />
+    <Folder Include="Common\Server\Packet\" />
+    <Folder Include="Network\" />
+    <Folder Include="DB\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
+    <PackageReference Include="MySql.Data" Version="9.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Tool\Web\Library\NerdFox\NerdFoxConnector.Server\NerdFoxConnector.Server.csproj" />
+    <ProjectReference Include="..\..\Tool\Web\Library\OpenAIConnector\GirlFrend.Lib\GirlFrend.Lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

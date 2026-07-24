@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>x64</Platforms>
+    <BaseOutputPath>../_bin/VersionHub</BaseOutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <OutputPath>../_bin/VersionHub</OutputPath>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <PackageOutputPath>../_bin/VersionHub</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common\Server\GameData\**" />
+    <EmbeddedResource Remove="Common\Server\GameData\**" />
+    <None Remove="Common\Server\GameData\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Client\Assets\Common\Common.cs" Link="Common\Client\Common.cs" />
+    <Compile Include="..\..\Client\Assets\Common\Packet\C2VPacket.cs" Link="Common\Client\Packet\C2VPacket.cs" />
+    <Compile Include="..\_Common\HNetwork\Common\Api.cs" Link="Common\Server\HNetwork\Common\Api.cs" />
+    <Compile Include="..\_Common\HNetwork\Common\Buffer.cs" Link="Common\Server\HNetwork\Common\Buffer.cs" />
+    <Compile Include="..\_Common\HNetwork\Common\Job.cs" Link="Common\Server\HNetwork\Common\Job.cs" />
+    <Compile Include="..\_Common\HNetwork\Common\Logger.cs" Link="Common\Server\HNetwork\Common\Logger.cs" />
+    <Compile Include="..\_Common\HNetwork\HNet.cs" Link="Common\Server\HNetwork\HNet.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetAcceptor.cs" Link="Common\Server\HNetwork\HNetAcceptor.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetCommon.cs" Link="Common\Server\HNetwork\HNetCommon.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetConnector.cs" Link="Common\Server\HNetwork\HNetConnector.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetConnector.Unity.cs" Link="Common\Server\HNetwork\HNetConnector.Unity.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetFunctor.cs" Link="Common\Server\HNetwork\HNetFunctor.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetIo.cs" Link="Common\Server\HNetwork\HNetIo.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetPacket.cs" Link="Common\Server\HNetwork\HNetPacket.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetPacket.Typedef.cs" Link="Common\Server\HNetwork\HNetPacket.Typedef.cs" />
+    <Compile Include="..\_Common\HNetwork\HNetSession.cs" Link="Common\Server\HNetwork\HNetSession.cs" />
+    <Compile Include="..\_Common\IniFile.cs" Link="Common\IniFile.cs" />
+    <Compile Include="..\_Common\MiniDumper.cs" Link="Common\MiniDumper.cs" />
+    <Compile Include="..\_Common\ServerConfig.cs" Link="Common\ServerConfig.cs" />
+    <Compile Include="..\_Common\Util.cs" Link="Common\Util.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Client\Packet\" />
+    <Folder Include="Common\Server\HNetwork\Common\" />
+  </ItemGroup>
+
+</Project>
